@@ -1,47 +1,44 @@
 #include "main.h"
 
-
 /**
-  * print_times_table - printsthe times inputed
-  * starting with 0.
-  *@n: the value of the timea table printed
-  */
-
-
+ * print_times_table - prints the n times table, starting with 0
+ * @n: the number of times table to print (0-15)
+ *
+ * Description: This function prints the n times table, starting from 0 up
+ * to n times the value of n. If n is greater than 15 or less than 0, it
+ * does not print anything.
+ */
 void print_times_table(int n)
 {
+int i, j, product;
 
+if (n < 0 || n > 15)
+return;
 
-	int num, mult, prod;
-
-
-	if (n >= 0 && n <= 15)
-	{
-	for (num = 0; num <= n; num++)
-	{
-	_putchar('0');
-	for (mult = 1; mult <= n; mult++)
-	{
-	_putchar(',');
-	_putchar(' ');
-	prod = num * mult;
-	if (prod <= 99)
-	_putchar(' ');
-	if (prod <= 9)
-	_putchar(' ');
-	if (prod >= 100)
-	{
-	_putchar((prod / 100) + '0');
-	_putchar(((prod / 10)) % 10 + '0');
-	}
-	else if (prod <= 99 && prod >= 10)
-	{
-	_putchar((prod / 10) + '0');
-	}
-	_putchar((prod % 10) + '0');
-	}
-	_putchar('\n');
-	}
-	}
+for (i = 0; i <= n; i++)
+{
+for (j = 0; j <= n; j++)
+{
+product = i * j;
+if (j == 0)
+_putchar('0');
+else
+{
+_putchar(',');
+_putchar(' ');
+if (product < 10)
+_putchar(' ');
+if (product < 100)
+_putchar(' ');
 }
-
+if (product < 10)
+_putchar(' ');
+else if (product < 100)
+_putchar(' ');
+_putchar((product / 100) + '0');
+_putchar(((product / 10) % 10) + '0');
+_putchar((product % 10) + '0');
+}
+_putchar('\n');
+}
+}
