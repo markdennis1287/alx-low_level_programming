@@ -1,1 +1,1 @@
-Function pointers
+Dennis Miring'u
